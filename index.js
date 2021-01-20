@@ -8,7 +8,7 @@ app.get('/avail', (req,res) => {
     console.log('Sent list of items');
 
     var dir = path.join(__dirname+'/available');
-    var list = '{ "available" : [';
+    var list = '{ "available" : [\n';
     var name = new RegExp("name[a-zA-Z]*");
     var birth = new RegExp("birth[a-zA-Z]*");
     var description = new RegExp("desc[a-zA-Z]*");
@@ -16,65 +16,59 @@ app.get('/avail', (req,res) => {
 
     const fs = require('fs');
 
-    fs.readdir(dir, function(err, filenames) {
-      if (err) {
-        console.log(err);
-        return;
-      }
+    var filenames = fs.readdirSync(dir, 'utf8');
+    var count = 0;
 
-      var count = 0;
-      filenames.forEach(function(filename) {
-      console.log("fn " + filename);
-        fs.readFile(path.join(dir,filename), 'utf8' , (err, data) => {
-          if (err) {
-            console.error(err)
-            return
-          }
-          list = list + '{ ';
-          // split the contents by new line
-          const lines = data.split(/\r?\n/);
+    filenames.forEach(function(filename){
+      var data = fs.readFileSync(path.join(dir,filename), 'utf8');
 
-          // print all lines
-          lines.forEach((line) => {
-            console.log("line " + line);
-            const div = line.split(/:/);
-            if (div.length > 2){
-              console.error("Bad formatting on " + line);
-            }
-            else {
-              if (name.test(div[0])){
-                list += '{ "name" : ' + div[1];       
-              }
-              else if (birth.test(div[0])){
-                list += '{ "birthdate" : ' + div[1];       
-              }
-              else if (description.test(div[0])){
-                list += '{ "description" : ' + div[1];
-              }
-              else if (color.test(div[0])){
-                list += '{ "color" : ' + div[1];
-              }
-              else {
-                console.log("Unexpected formatter " + line);
-              }
+      list = list + '{ ';
+      // split the contents by new line
+      const lines = data.split(/\r?\n/);
 
-            }
-          });
-
-          list = list + '}';
-        })
-
-        if (count < (filenames.length - 1)){
-          list = list + ']}';
+      var count2 = 0;
+      // print all lines
+      lines.forEach((line) => {
+        const div = line.split(/:/);
+        if (div.length > 2){
+          console.error("Bad formatting on " + line);
         }
         else {
-          count++;
-          list = list + ', ';
+          if (name.test(div[0])){
+            list += '"name" : "' + div[1] + '"';       
+          }
+          else if (birth.test(div[0])){
+            list += '"birthdate" : "' + div[1] + '"';       
+          }
+          else if (description.test(div[0])){
+            list += '"description" : "' + div[1] + '"';
+          }
+          else if (color.test(div[0])){
+            list += '"color" : "' + div[1] + '"';
+          }
+          else {
+            console.log("Unexpected formatter " + line);
+          }
+
+        }
+        if (count2 < (lines.length - 2)){
+          count2++;
+          list += ",\n"
         }
       });
-      console.log("List " + list);
-      res.json(list);
-    });
+      list += '}'
+
+      if (count == (filenames.length - 1)){
+        list = list + '\n]}';
+      }
+      else {
+        count++;
+        list = list + ', ';
+      }
+
+    })
+
+    res.json(JSON.parse(list));
 });
 
 // Handles any requests that don't match the ones above
