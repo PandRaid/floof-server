@@ -1,0 +1,4 @@
+name: bowser
+birthday: 101003
+description: silly  
+color: platnium
