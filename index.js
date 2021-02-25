@@ -7,14 +7,8 @@ console.log(path.join(__dirname, 'pictures'));
 
 function parse_list(ext){
   var list = "{ ";
-  var name = new RegExp("name[a-zA-Z]*");
-  var birth = new RegExp("birth[a-zA-Z]*");
-  var description = new RegExp("desc[a-zA-Z]*");
-  var color = new RegExp("color[a-zA-Z]*");
-  var pics = new RegExp("pic[a-zA-Z]*");
   const fs = require('fs');
 
-  var count = 0;
   var count_dirs = 0;
   var dirs = [ext];
 
@@ -27,6 +21,7 @@ function parse_list(ext){
     var dir = path.join(__dirname +'/' + dir_short);
     list += '"' + dir_short + '" : [';
     var filenames = fs.readdirSync(dir, 'utf8');
+    var count = 0;
 
     filenames.forEach(function(filename){
       var data = fs.readFileSync(path.join(dir,filename), 'utf8');
@@ -43,24 +38,66 @@ function parse_list(ext){
           console.error("Bad formatting on " + line);
         }
         else {
-          if (name.test(div[0])){
-            list += '"name" : "' + div[1].trim() + '"';       
-          }
-          else if (birth.test(div[0])){
-            list += '"birthdate" : "' + div[1].trim() + '"';       
-          }
-          else if (description.test(div[0])){
-            list += '"description" : "' + div[1].trim() + '"';
-          }
-          else if (color.test(div[0])){
-            list += '"color" : "' + div[1].trim() + '"';
-          } 
-          else if (pics.test(div[0])){
-            list += '"pics" : "' + div[1].trim() + '"';
+          if (dir_short == "expected"){
+            var dad = new RegExp("dad[a-zA-Z]*");
+            var dad_dna = new RegExp("dnad[a-zA-Z]*");
+            var mom = new RegExp("mom[a-zA-Z]*");
+            var mom_dna = new RegExp("dnam[a-zA-Z]*");
+            var exp = new RegExp("exp[a-zA-Z]*");
+            var description = new RegExp("desc[a-zA-Z]*");
+            var pics = new RegExp("pic[a-zA-Z]*");
+
+            if (dad.test(div[0])){
+              list += '"dad" : "' + div[1].trim() + '"';       
+            }
+            else if (dad_dna.test(div[0])){
+              list += '"dad_dna" : "' + div[1].trim() + '"';       
+            }
+            else if (mom.test(div[0])){
+              list += '"mom" : "' + div[1].trim() + '"';
+            }
+            else if (mom_dna.test(div[0])){
+              list += '"mom_dna" : "' + div[1].trim() + '"';
+            } 
+            else if (exp.test(div[0])){
+              list += '"exp" : "' + div[1].trim() + '"';
+            } 
+            else if (pics.test(div[0])){
+              list += '"pics" : "' + div[1].trim() + '"';
+            }
+            else if (description.test(div[0])){
+              list += '"description" : "' + div[1].trim() + '"';
+            }
+            else {
+              console.log("Unexpected formatter " + line);
+            }
           }
           else {
-            console.log("Unexpected formatter " + line);
-          }
+            var name = new RegExp("name[a-zA-Z]*");
+            var birth = new RegExp("birth[a-zA-Z]*");
+            var description = new RegExp("desc[a-zA-Z]*");
+            var color = new RegExp("color[a-zA-Z]*");
+            var pics = new RegExp("pic[a-zA-Z]*");
+
+            if (name.test(div[0])){
+              list += '"name" : "' + div[1].trim() + '"';       
+            }
+            else if (birth.test(div[0])){
+              list += '"birthdate" : "' + div[1].trim() + '"';       
+            }
+            else if (description.test(div[0])){
+              list += '"description" : "' + div[1].trim() + '"';
+            }
+            else if (color.test(div[0])){
+              list += '"color" : "' + div[1].trim() + '"';
+            } 
+            else if (pics.test(div[0])){
+              list += '"pics" : "' + div[1].trim() + '"';
+            }
+            else {
+              console.log("Unexpected formatter " + line);
+            }
+         }
 
         }
         if (count2 < (lines.length - 2)){
@@ -71,6 +108,7 @@ function parse_list(ext){
       list += '}';
 
       if (count != (filenames.length - 1)){
+        console.log("count " + count);
         count++;
         list = list + ', ';
       }
