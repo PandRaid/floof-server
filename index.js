@@ -11,6 +11,7 @@ function parse_list(ext){
   var birth = new RegExp("birth[a-zA-Z]*");
   var description = new RegExp("desc[a-zA-Z]*");
   var color = new RegExp("color[a-zA-Z]*");
+  var pics = new RegExp("pic[a-zA-Z]*");
   const fs = require('fs');
 
   var count = 0;
@@ -53,6 +54,9 @@ function parse_list(ext){
           }
           else if (color.test(div[0])){
             list += '"color" : "' + div[1].trim() + '"';
+          } 
+          else if (pics.test(div[0])){
+            list += '"pics" : "' + div[1].trim() + '"';
           }
           else {
             console.log("Unexpected formatter " + line);
