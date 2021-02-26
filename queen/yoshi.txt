@@ -2,3 +2,4 @@ name: yoshi
 birthday: 10/10/2019
 description: energetic
 color: blue brindle
+pics: 1
