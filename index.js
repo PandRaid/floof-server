@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const nodemailer = require('nodemailer');
 
 const app = express();
 app.use('/static', express.static(path.join(__dirname, 'pictures')));
@@ -127,6 +128,8 @@ function parse_list(ext){
   return list;
 }
 
+
+
 // An api endpoint that returns a short list of items
 app.get('/queen', (req,res) => {
 
@@ -177,6 +180,50 @@ app.get('/avail', (req,res) => {
 
     res.json(val);
 });
+
+const transporter = nodemailer.createTransport({
+  host: "smtp.gmail.com", //replace with your email provider
+  port: 587,
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.PASSWORD
+  }
+});
+
+transporter.verify(function(error, success) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log("Server is ready to take our messages");
+  }
+});
+
+app.post('/send', (req, res, next) => {
+  var name = req.body.name
+  var email = req.body.email
+  var message = req.body.message
+
+  var mail = {
+    from: name,
+    to: // receiver email,
+    subject: "dogs",
+    text: message
+  }
+
+  transporter.sendMail(mail, (err, data) => {
+    if (err) {
+      res.json({
+        status: 'fail'
+      })
+    } else {
+      res.json({
+       status: 'success'
+      })
+    }
+  })
+})
+
+
 
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{

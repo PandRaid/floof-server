@@ -1,5 +1,5 @@
 name: peach
-birthday: 101020
+birthday: 10/10/20
 description: cute
-color: fluffy
+color: fluffy (at/ay L4/L4)
 pics: 5

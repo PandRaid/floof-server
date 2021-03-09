@@ -1,5 +1,0 @@
-name: peach
-birthday: 101020
-description: cute
-color: fluffy
-pics: 5

@@ -1,5 +1,5 @@
 name: bowser
-birthday: 101003
+birthday: 10/10/20
 description: silly  
-color: platnium
+color: platinum fluffy carrier (dd coco ee atay s/L4)
 pics: 5

@@ -1,0 +1,5 @@
+name: daisy
+birthday: 1/14/21
+description: silly  
+color: Blue Fluffy (dd/aa/nCo/LL)
+pics: 1
