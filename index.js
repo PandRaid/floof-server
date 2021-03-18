@@ -4,6 +4,7 @@ const nodemailer = require('nodemailer');
 
 const app = express();
 app.use('/static', express.static(path.join(__dirname, 'pictures')));
+app.use(express.static(path.join(__dirname, 'fluffy-frenchies-boot/build')));
 console.log(path.join(__dirname, 'pictures'));
 
 function parse_list(ext){
