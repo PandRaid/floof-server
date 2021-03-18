@@ -4,7 +4,7 @@ const nodemailer = require('nodemailer');
 
 const app = express();
 app.use('/static', express.static(path.join(__dirname, 'pictures')));
-app.use(express.static(path.join(__dirname, 'fluffy-frenchies-boot/build')));
+app.use(express.static(path.join(__dirname, 'client/build')));
 console.log(path.join(__dirname, 'pictures'));
 
 function parse_list(ext){
@@ -186,7 +186,7 @@ app.get('/avail', (req,res) => {
 
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{
-  res.sendFile(path.join(__dirname+'/fluffy-frenchies-boot/build/index.html'));
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 const port = process.env.PORT || 5000;

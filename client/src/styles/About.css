@@ -1,0 +1,53 @@
+
+.pic-sz {
+	max-width: 100%;
+    max-height: 100%;
+}
+
+.box-sz {
+	width: 200vw;
+	padding: 5% 5% 5% 5%
+}
+
+.shadow {
+	box-shadow: 0 0 10px 0px rgb(0 0 0 / 20%);
+	display: flex;
+}
+
+.pic__shadow {
+  box-shadow: 30px 30px #66D3FA;
+}
+
+.box__color {
+	background-color: #EFF2FF;
+}
+
+.pad {
+	padding: 5% 5% 5% 5%
+}
+
+.spacing {
+	height: 10vh;
+}
+.about__text {
+	font-size: 1.2vw;
+	font-family: 'Lato', sans-serif;
+	justify-content: center;
+	align-items: center;
+	text-align: start;
+	color: #181818;
+}
+
+
+.contact__text {
+	font-size: 1.2vw;
+	font-family: 'Lato', sans-serif;
+	justify-content: center;
+	align-items: center;
+	text-align: start;
+	color: #181818;
+}
+.pad__top {
+	padding-top: 2%;
+	padding-bottom: 5%;
+}

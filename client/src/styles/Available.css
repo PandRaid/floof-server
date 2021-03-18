@@ -1,0 +1,70 @@
+.available__box {
+	box-shadow: 0 0 10px 0px rgb(0 0 0 / 20%);
+	display: block;
+}
+
+@font-face {
+font-family: myFont;
+src: url('../images/shink.otf');
+}
+
+.available__text {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-family: myFont;
+	padding-top: 1%;
+	color: #181818;
+}
+
+.info__text {
+	font-size: 1.2vw;
+	font-family: 'Lato', sans-serif;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: #181818;
+}
+
+.info__text {
+	font-size: 1.2vw;
+	font-family: 'Lato', sans-serif;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	color: #181818;
+}
+
+.expected_text {
+	font-size: 1.2vw;
+	font-family: 'Lato', sans-serif;
+	justify-content: center;
+	align-items: center;
+	text-align: start;
+	color: #181818;
+	padding-top: 2%;
+}
+
+.available__box__pad {
+	padding: 2% 0% 2% 0%;
+}
+
+.break_pad {
+	padding-top: 1%;
+	padding-bottom: 1%;
+}
+
+.pad_text {
+	padding-top: 5vw;
+}
+
+.wide {
+	width: 18vw;
+    height: 18vw;
+  	box-shadow: 20px 20px #66D3FA;
+}
+.double-wide {
+	width: 36vw;
+    height: 18vw;
+  	box-shadow: 20px 20px #66D3FA;
+}
