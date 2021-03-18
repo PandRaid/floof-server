@@ -13,7 +13,7 @@ function getRows(props) {
   var rows = [];
   var avail = arguments[0];
 
-  var url_base = 'http://localhost:5000/static/';
+  var url_base = '/static/';
 
   if (avail !==
    undefined && avail.pics > 0){
@@ -103,7 +103,7 @@ class Queens extends React.PureComponent {
                         <Row>
                         <Col xs={2} md={2}></Col>
                         <Col xs={4} md={4}>
-                            <img className="wide" src={'http://localhost:5000/static/' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
+                            <img className="wide" src={'/static/' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
                         </Col>
                         <Col xs={4} md={4} className="pad_text">
                             Name : {item.name} <br/>
@@ -124,7 +124,7 @@ class Queens extends React.PureComponent {
                             <br/>
                         </Col>
                         <Col xs={4} md={4}>
-                            <img className="wide" src={'http://localhost:5000/static/' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
+                            <img className="wide" src={'/static/' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
                         </Col>
                         </Row>
                       }

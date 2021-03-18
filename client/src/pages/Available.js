@@ -108,7 +108,7 @@ class Available extends React.PureComponent {
 			    	  				<Col xs={2} md={2}></Col>
 			    	  				<Col xs={4} md={4}>
 			    	  					<div className="info__text">
-			    	  					<img className="wide" src={'http://localhost:5000/static/' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
+			    	  					<img className="wide" src={'/static' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
 			    	  					<br/><br/><hr className="break_pad"/> 
 								  		Name : {item.name} <br/>
 								  		Birthday : {item.birthdate} <br/>
@@ -120,7 +120,7 @@ class Available extends React.PureComponent {
 			    	  				<Col xs={4} md={4}>
 			    	  					{(index < avail.length) ?
 			    	  						<div className="info__text">
-				    	  					<img className="wide" src={'http://localhost:5000/static/' + avail[index+1].name + '/' + avail[index+1].name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : (index+1)})}/>
+				    	  					<img className="wide" src={'/static/' + avail[index+1].name + '/' + avail[index+1].name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : (index+1)})}/>
 				    	  					<br/><br/><hr className="break_pad"/> 
 									  		Name : {avail[index+1].name} <br/>
 									  		Birthday : {avail[index+1].birthdate} <br/>
