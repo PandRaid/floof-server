@@ -174,6 +174,7 @@ app.get('/expected', (req,res) => {
 // An api endpoint that returns a short list of items
 app.get('/avail', (req,res) => {
 
+
     var avail = parse_list("available");
     console.log(avail);
     var val = JSON.parse(avail);
@@ -185,7 +186,7 @@ app.get('/avail', (req,res) => {
 
 // Handles any requests that don't match the ones above
 app.get('*', (req,res) =>{
-    console.log('got wrong request');
+  res.sendFile(path.join(__dirname+'/fluffy-frenchies-boot/build/index.html'));
 });
 
 const port = process.env.PORT || 5000;
