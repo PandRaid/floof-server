@@ -24,95 +24,105 @@ function parse_list(ext){
     list += '"' + dir_short + '" : [';
     var filenames = fs.readdirSync(dir, 'utf8');
     var count = 0;
+    var fn_len = filenames.length;
 
     filenames.forEach(function(filename){
-      var data = fs.readFileSync(path.join(dir,filename), 'utf8');
+      var extension = new RegExp("[a-zA-z0-9]*\.txt");
+      if (!extension.test(filename)){
+        fn_len = fn_len - 1;
+      }
+    })
 
-      list = list + '{ ';
-      // split the contents by new line
-      const lines = data.split(/\r?\n/);
+    filenames.forEach(function(filename){
+      var extension = new RegExp("[a-zA-z0-9]*\.txt");
+      if (extension.test(filename)){
+        var data = fs.readFileSync(path.join(dir,filename), 'utf8');
 
-      var count2 = 0;
-      // print all lines
-      lines.forEach((line) => {
-        const div = line.split(/:/);
-        if (div.length > 2){
-          console.error("Bad formatting on " + line);
-        }
-        else {
-          if (dir_short == "expected"){
-            var dad = new RegExp("dad[a-zA-Z]*");
-            var dad_dna = new RegExp("dnad[a-zA-Z]*");
-            var mom = new RegExp("mom[a-zA-Z]*");
-            var mom_dna = new RegExp("dnam[a-zA-Z]*");
-            var exp = new RegExp("exp[a-zA-Z]*");
-            var description = new RegExp("desc[a-zA-Z]*");
-            var pics = new RegExp("pic[a-zA-Z]*");
+        list = list + '{ ';
+        // split the contents by new line
+        const lines = data.split(/\r?\n/);
 
-            if (dad.test(div[0])){
-              list += '"dad" : "' + div[1].trim() + '"';       
-            }
-            else if (dad_dna.test(div[0])){
-              list += '"dad_dna" : "' + div[1].trim() + '"';       
-            }
-            else if (mom.test(div[0])){
-              list += '"mom" : "' + div[1].trim() + '"';
-            }
-            else if (mom_dna.test(div[0])){
-              list += '"mom_dna" : "' + div[1].trim() + '"';
-            } 
-            else if (exp.test(div[0])){
-              list += '"exp" : "' + div[1].trim() + '"';
-            } 
-            else if (pics.test(div[0])){
-              list += '"pics" : "' + div[1].trim() + '"';
-            }
-            else if (description.test(div[0])){
-              list += '"description" : "' + div[1].trim() + '"';
-            }
-            else {
-              console.log("Unexpected formatter " + line);
-            }
+        var count2 = 0;
+        // print all lines
+        lines.forEach((line) => {
+          const div = line.split(/:/);
+          if (div.length > 2){
+            console.error("Bad formatting on " + line);
           }
           else {
-            var name = new RegExp("name[a-zA-Z]*");
-            var birth = new RegExp("birth[a-zA-Z]*");
-            var description = new RegExp("desc[a-zA-Z]*");
-            var color = new RegExp("color[a-zA-Z]*");
-            var pics = new RegExp("pic[a-zA-Z]*");
+            if (dir_short == "expected"){
+              var dad = new RegExp("dad[a-zA-Z]*");
+              var dad_dna = new RegExp("dnad[a-zA-Z]*");
+              var mom = new RegExp("mom[a-zA-Z]*");
+              var mom_dna = new RegExp("dnam[a-zA-Z]*");
+              var exp = new RegExp("exp[a-zA-Z]*");
+              var description = new RegExp("desc[a-zA-Z]*");
+              var pics = new RegExp("pic[a-zA-Z]*");
 
-            if (name.test(div[0])){
-              list += '"name" : "' + div[1].trim() + '"';       
-            }
-            else if (birth.test(div[0])){
-              list += '"birthdate" : "' + div[1].trim() + '"';       
-            }
-            else if (description.test(div[0])){
-              list += '"description" : "' + div[1].trim() + '"';
-            }
-            else if (color.test(div[0])){
-              list += '"color" : "' + div[1].trim() + '"';
-            } 
-            else if (pics.test(div[0])){
-              list += '"pics" : "' + div[1].trim() + '"';
+              if (dad.test(div[0])){
+                list += '"dad" : "' + div[1].trim() + '"';       
+              }
+              else if (dad_dna.test(div[0])){
+                list += '"dad_dna" : "' + div[1].trim() + '"';       
+              }
+              else if (mom.test(div[0])){
+                list += '"mom" : "' + div[1].trim() + '"';
+              }
+              else if (mom_dna.test(div[0])){
+                list += '"mom_dna" : "' + div[1].trim() + '"';
+              } 
+              else if (exp.test(div[0])){
+                list += '"exp" : "' + div[1].trim() + '"';
+              } 
+              else if (pics.test(div[0])){
+                list += '"pics" : "' + div[1].trim() + '"';
+              }
+              else if (description.test(div[0])){
+                list += '"description" : "' + div[1].trim() + '"';
+              }
+              else {
+                console.log("Unexpected formatter " + line);
+              }
             }
             else {
-              console.log("Unexpected formatter " + line);
-            }
-         }
+              var name = new RegExp("name[a-zA-Z]*");
+              var birth = new RegExp("birth[a-zA-Z]*");
+              var description = new RegExp("desc[a-zA-Z]*");
+              var color = new RegExp("color[a-zA-Z]*");
+              var pics = new RegExp("pic[a-zA-Z]*");
 
-        }
-        if (count2 < (lines.length - 2)){
-          count2++;
-          list += ",";
-        }
-      });
-      list += '}';
+              if (name.test(div[0])){
+                list += '"name" : "' + div[1].trim() + '"';       
+              }
+              else if (birth.test(div[0])){
+                list += '"birthdate" : "' + div[1].trim() + '"';       
+              }
+              else if (description.test(div[0])){
+                list += '"description" : "' + div[1].trim() + '"';
+              }
+              else if (color.test(div[0])){
+                list += '"color" : "' + div[1].trim() + '"';
+              } 
+              else if (pics.test(div[0])){
+                list += '"pics" : "' + div[1].trim() + '"';
+              }
+              else {
+                console.log("Unexpected formatter " + line);
+              }
+           }
 
-      if (count != (filenames.length - 1)){
-        console.log("count " + count);
-        count++;
-        list = list + ', ';
+          }
+          if (count2 < (lines.length - 2)){
+            count2++;
+            list += ",";
+          }
+        });
+        list += '}';
+
+        if (count != (fn_len - 1)){
+          count++;
+          list = list + ', ';
+        }
       }
 
     })
@@ -126,6 +136,7 @@ function parse_list(ext){
       list += ']}';
     }
   })
+
   return list;
 }
 
