@@ -160,7 +160,7 @@ class Available extends React.PureComponent {
                         <Row>
                         <Col xs={2} md={2}></Col>
                         <Col xs={4} md={4}>
-                            <img className="double-wide" src={'http://localhost:5000/static/expected/' + item.mom + 'x' + item.dad + '.jpg'}/>
+                            <img className="double-wide" src={'/static/expected/' + item.mom + 'x' + item.dad + '.jpg'}/>
                         </Col>
                         <Col xs={4} md={4} className="expected_text">
 					  		Mom : {item.mom} <br/>
@@ -185,7 +185,7 @@ class Available extends React.PureComponent {
 					  		<br/>
                         </Col>
                         <Col xs={4} md={4}>
-                            <img className="double-wide" src={'http://localhost:5000/static/expected/' + item.mom + 'x' + item.dad + '.jpg'}/>
+                            <img className="double-wide" src={'/static/expected/' + item.mom + 'x' + item.dad + '.jpg'}/>
                         </Col>
                         </Row>
                       }
