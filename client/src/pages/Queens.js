@@ -2,10 +2,8 @@ import React from 'react';
 import '../styles/Available.css'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
-import ReactHtmlParser from 'react-html-parser'; 
+import Col from 'react-bootstrap/Col' 
 import Modal from 'react-bootstrap/Modal'
-import Button from 'react-bootstrap/Button'
 import Carousel from 'react-bootstrap/Carousel';
 
 
@@ -103,7 +101,7 @@ class Queens extends React.PureComponent {
                         <Row>
                         <Col xs={2} md={2}></Col>
                         <Col xs={4} md={4}>
-                            <img className="wide" src={'/static/' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
+                            <img className="wide pup__image" src={'/static/' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
                         </Col>
                         <Col xs={4} md={4} className="pad_text">
                             Name : {item.name} <br/>
@@ -124,7 +122,7 @@ class Queens extends React.PureComponent {
                             <br/>
                         </Col>
                         <Col xs={4} md={4}>
-                            <img className="wide" src={'/static/' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
+                            <img className="wide pup__image" src={'/static/' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
                         </Col>
                         </Row>
                       }

@@ -21,13 +21,19 @@ class About extends React.PureComponent {
 		      rounded />
 		      </div>
 		      <div className="pad">
-		      Based in phoenix, Fluffy Family Frenchies produces high quality french bulldogs with health in mind. All our frenchies are guarenteed to be four panel clear so they
-		      can have a long, healthy, and happy life with their new family - you! We produce a variety of different colors in FLUFFY and shorthair! All our pups have amazing structure and are well socialized with other dogs, cats and kids. We do not use kennels and all our dogs are strictly indoors which is why
-		      it's called fluffy FAMILY frenchies, because they are a part of our family and we raise every single puppy with that in mind. Take a look around to see the parents, available puppies, future and
+		      <h1 className="mt-2 about__header"> About Us </h1>
+		      <hr/>
+
+		      Based in phoenix, <b className="font">Fluffy Family Frenchies</b> produces high quality french bulldogs with health in mind. All our frenchies are guarenteed to be four panel clear so they
+		      can have a long, healthy, and happy life with their new family - you! We produce a variety of different colors in <b className="font">FLUFFY</b> and shorthair! All our pups have amazing structure and are well socialized with other dogs, cats and kids. We do not use kennels and all our dogs are strictly indoors which is why
+		      it's called <b className="font">Fluffy FAMILY Frenchies</b>, because they are a part of our family and we raise every single puppy with that in mind. Take a look around to see the parents, available puppies, future and
 		      past litters. We hope you find your new best friend with us.
 		      </div>
 	    </Col>
 	    <Col></Col>
+	  </Row>
+	  <Row className="spacing">
+	  <Col xs={12} md={12}><br/><br/></Col>
 	  </Row>
 	</Container>
     );

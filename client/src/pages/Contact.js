@@ -1,12 +1,9 @@
 import React from 'react';
-import pups from '../images/pups.jpg'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Image from 'react-bootstrap/Image'
 import '../styles/About.css'
 import * as emailjs from 'emailjs-com'
-import { Button, FormFeedback, Form, FormControl, FormGroup, Label, Input } from 'react-bootstrap'
 import Alert from 'react-bootstrap/Alert'
 
 class Contact extends React.PureComponent {
@@ -77,8 +74,7 @@ class Contact extends React.PureComponent {
 	    <Col xs={6} md={10} className="shadow box__color">
 	    	<Col xs={1} md={1}></Col>
 	    	<Col xs={4} md={4} className="contact__text pad__top">
-	    	Contact Information
-	    	<br/><hr/>
+	    	<h1 className="contact__header"> Contact Info </h1><hr/>
 	    	Tel: 480-696-6969
 	    	<br/><br/>
 	    	EMail: fluffyfamilyfrenchies@gmail.com
@@ -86,8 +82,7 @@ class Contact extends React.PureComponent {
 	    	</Col>
 	    	<Col xs={1} md={1}></Col>
 	    	<Col xs={4} md={4} className="pad__top about__text"> 
-	    		Contact Us	 
-	    		<br/><hr/>
+	    		<h1 className="contact__header"> Message Us! </h1><hr/>
 
 			    <form onSubmit={this.handleSubmit} encType="multipart/form-data" autoComplete="off">
 			      <div className="form-group">

@@ -26,15 +26,6 @@ src: url('../images/shink.otf');
 	color: #181818;
 }
 
-.info__text {
-	font-size: 1.2vw;
-	font-family: 'Lato', sans-serif;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
-	color: #181818;
-}
-
 .expected_text {
 	font-size: 1.2vw;
 	font-family: 'Lato', sans-serif;
@@ -61,10 +52,10 @@ src: url('../images/shink.otf');
 .wide {
 	width: 18vw;
     height: 18vw;
-  	box-shadow: 20px 20px #66D3FA;
+  	box-shadow: 20px 20px #4a5572;
 }
 .double-wide {
 	width: 36vw;
     height: 18vw;
-  	box-shadow: 20px 20px #66D3FA;
+  	box-shadow: 20px 20px #4a5572;
 }

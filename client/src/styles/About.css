@@ -14,23 +14,38 @@
 	display: flex;
 }
 
+.rounded {
+    border-radius: .5rem!important;
+}
+
 .pic__shadow {
-  box-shadow: 30px 30px #66D3FA;
+  width: 80%;
+  box-shadow: 20px 20px #4a5572;
+}
+
+.pup__image {
+	transition: transform .2s; /* Animation */
+	width: 300px;
+	height: 300px;
+}
+
+.pup__image:hover {
+	transform: scale(1.07);
 }
 
 .box__color {
-	background-color: #EFF2FF;
+	background-color: #e9f5ff;
 }
 
 .pad {
-	padding: 5% 5% 5% 5%
+	padding: 2.5% 5% 5% 5%
 }
 
 .spacing {
 	height: 10vh;
 }
 .about__text {
-	font-size: 1.2vw;
+	font-size: 1.3vw;
 	font-family: 'Lato', sans-serif;
 	justify-content: center;
 	align-items: center;
@@ -50,4 +65,33 @@
 .pad__top {
 	padding-top: 2%;
 	padding-bottom: 5%;
+}
+
+@font-face {
+font-family: myFont;
+src: url('../images/shink.otf');
+}
+
+.font {
+	font-family: myFont;
+	font-size: 1.8vw;
+}
+
+.contact__header {
+	justify-content: center;
+	align-items: center;
+	text-align: start;
+	font-family: myFont;
+	color: #181818;
+	font-size: 1.7vw;
+}
+
+.about__header {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-family: myFont;
+	padding-top: 1%;
+	color: #181818;
+	font-size: 4vw;
 }
