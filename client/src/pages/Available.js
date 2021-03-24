@@ -97,7 +97,7 @@ class Available extends React.PureComponent {
 
 			  <div className="info_text">
 
-		    	  	{   (avail.length > 0) &&
+		    	  	{   (avail.length > 0) ?
 	    	  			avail.map((item, index) => {
 			    	  		return (
 			    	  			<>
@@ -108,11 +108,13 @@ class Available extends React.PureComponent {
 			    	  					<div className="info__text">
 			    	  					<img className="wide" src={'/static' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
 			    	  					<br/><br/><hr className="break_pad"/> 
-								  		Name : {item.name} <br/>
-								  		Birthday : {item.birthdate} <br/>
-								  		Color : {item.color} <br/>
-								  		{item.description} <br/>
-								  		<br/>
+								  		<div className="corner-border">
+				                            <b>Name</b> : {item.name} <br/>
+				                            <b>Birthday</b> : {item.birthdate} <br/>
+				                            <b>Color</b> : {item.color} <br/>
+				                            <b>Description</b> : {item.description} <br/>
+				                            <br/>
+				                          </div>
 								  		</div>
 			    	  				</Col>
 			    	  				<Col xs={4} md={4}>
@@ -120,11 +122,13 @@ class Available extends React.PureComponent {
 			    	  						<div className="info__text">
 				    	  					<img className="wide" src={'/static/' + avail[index+1].name + '/' + avail[index+1].name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : (index+1)})}/>
 				    	  					<br/><br/><hr className="break_pad"/> 
-									  		Name : {avail[index+1].name} <br/>
-									  		Birthday : {avail[index+1].birthdate} <br/>
-									  		Color : {avail[index+1].color} <br/>
-									  		{avail[index+1].description} <br/>
-									  		<br/>
+									  		<div className="corner-border">
+					                            <b>Name</b> : {item.name} <br/>
+					                            <b>Birthday</b> : {item.birthdate} <br/>
+					                            <b>Color</b> : {item.color} <br/>
+					                            <b>Description</b> : {item.description} <br/>
+					                            <br/>
+					                          </div>
 									  		</div>
 			    	  					:""}
 			    	  				</Col>
@@ -136,6 +140,11 @@ class Available extends React.PureComponent {
 			    	  			</>
 			    	  		);
 		    	  		})
+		    	  		:
+		    	  		<div className="box__text">
+		    	  		<b>No puppies available at this time! Check below for upcoming!</b>
+		    	  		<br/><br/><br/>
+		    	  		</div>
 		    	  	}
 		    	</div>
 	      
@@ -150,7 +159,7 @@ class Available extends React.PureComponent {
 	    	  <hr className="break_pad"/>
 	    	  		<div className="info__text">
 
-              {   (exp.length > 0) &&
+              {   (exp.length > 0) ?
                 exp.map((item, index) => {
                   return (
                     <>
@@ -161,26 +170,30 @@ class Available extends React.PureComponent {
                             <img className="double-wide" src={'/static/expected/' + item.mom + 'x' + item.dad + '.jpg'}/>
                         </Col>
                         <Col xs={4} md={4} className="expected_text">
-					  		Mom : {item.mom} <br/>
-					  		Mom DNA: {item.mom_dna} <br/>
-					  		Dad : {item.dad} <br/>
-					  		Dad DNA : {item.dad_dna} <br/>
-					  		Expected Date : {item.exp} <br/>
-					  		{item.description} <br/>
+                        <div className="corner-border">
+					  		<b>Mom</b> : {item.mom} <br/>
+					  		<b>Mom DNA</b> : {item.mom_dna} <br/>
+					  		<b>Dad</b> : {item.dad} <br/>
+					  		<b>Dad DNA</b> : {item.dad_dna} <br/>
+					  		<b>Expected Date</b> : {item.exp} <br/>
+					  		<b>Description</b> : {item.description} <br/>
 					  		<br/>
+				  		</div>
                         </Col>
                         </Row>
                         :
                         <Row>
                         <Col xs={2} md={2}></Col>
                         <Col xs={4} md={4} className="expected_text">
-                           	Mom : {item.mom} <br/>
-					  		Mom DNA: {item.mom_dna} <br/>
-					  		Dad : {item.dad} <br/>
-					  		Dad DNA : {item.dad_dna} <br/>
-					  		Expected Date : {item.exp} <br/>
-					  		{item.description} <br/>
+                        <div className="corner-border">
+					  		<b>Mom</b> : {item.mom} <br/>
+					  		<b>Mom DNA</b> : {item.mom_dna} <br/>
+					  		<b>Dad</b> : {item.dad} <br/>
+					  		<b>Dad DNA</b> : {item.dad_dna} <br/>
+					  		<b>Expected Date</b> : {item.exp} <br/>
+					  		<b>Description</b> : {item.description} <br/>
 					  		<br/>
+				  		</div>
                         </Col>
                         <Col xs={4} md={4}>
                             <img className="double-wide" src={'/static/expected/' + item.mom + 'x' + item.dad + '.jpg'}/>
@@ -191,6 +204,11 @@ class Available extends React.PureComponent {
                     </>
                   );
                 })
+                :
+    	  		<div className="box__text">
+    	  		<b>No expected litters at this time, check back in a couple weeks!</b>
+    	  		<br/><br/><br/>
+    	  		</div>
               }
           </div>
 	    </Col>

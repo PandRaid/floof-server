@@ -5,7 +5,7 @@
 
 @font-face {
 font-family: myFont;
-src: url('../images/shink.otf');
+src: url('../images/swash.ttf');
 }
 
 .available__text {
@@ -17,12 +17,22 @@ src: url('../images/shink.otf');
 	color: #181818;
 }
 
+.box__text {
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	font-size: 1.2vw;
+	font-family: 'Lato', sans-serif;
+	padding-top: 1%;
+	color: #181818;
+}
+
 .info__text {
 	font-size: 1.2vw;
 	font-family: 'Lato', sans-serif;
 	justify-content: center;
 	align-items: center;
-	text-align: center;
+	text-align: start;
 	color: #181818;
 }
 
@@ -58,4 +68,63 @@ src: url('../images/shink.otf');
 	width: 36vw;
     height: 18vw;
   	box-shadow: 20px 20px #4a5572;
+}
+
+h2 {
+  font-family: 'Open Sans', sans-serif;
+  text-align: left;
+  width: 150px;
+  margin: auto;
+  line-height: 2;
+}
+.corner-border, .bottom-corner {
+  position: relative;
+
+}
+
+/* vertical line */
+.corner-border::after {
+  content:'';
+  position: absolute;
+  background-color: #a58d4e;
+  width: 3px;
+  height: 60%;
+  top: -20px;
+  left: -30px;
+ 
+}
+
+/* horizontal line */
+.corner-border::before{
+  content:'';
+  position: absolute;
+  background-color: #a58d4e;
+  width: 25%;
+  height: 3px;
+  top: -20px;
+  left: -30px;
+ 
+}
+
+/* vertical line */
+.bottom-corner::after {
+  content:'';
+  position: absolute;
+  background-color: #a58d4e;
+  width: 3px;
+  height: 50%;
+  bottom: 0;
+  right:45px;
+ 
+}
+/* horizontal line */
+.bottom-corner::before {
+  content:'';
+  position: absolute;
+  background-color: #a58d4e;
+  width: 20%;
+  height: 3px;
+  bottom: 0;
+  right:45px;
+ 
 }
