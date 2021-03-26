@@ -1,5 +1,5 @@
-name: daisy
+name: Daisy
 birthday: 1/14/21
-description: silly  
+description: Daisy is timid but full of love. She would much rather sit on the couch and snuggle than play with her brother and sisters.
 color: Blue Fluffy (dd/aa/nCo/LL)
 pics: 1

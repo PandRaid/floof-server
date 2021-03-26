@@ -1,5 +1,5 @@
-name: yoshi
+name: Yoshi
 birthday: 10/10/2019
-description: energetic
-color: blue brindle
+description: Yoshi is fun loving, energetic and loves to go on runs. She is a great listener and knows a ton of tricks!
+color: Blue Brindle (dd/nCO/KBr/InIn/AyAt)
 pics: 1

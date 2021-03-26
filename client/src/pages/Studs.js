@@ -18,7 +18,7 @@ function getRows(props) {
     var numPics = avail.pics;
     var name = avail.name;
     for (var i = 0; i < numPics; i++) {
-      var url = url_base + name + '/' + name + '-' + (i+1) + '.jpg'
+      var url = url_base + name.toLowerCase() + '/' + name.toLowerCase() + '-' + (i+1) + '.jpg'
         rows.push(
           <Carousel.Item>
           <img
@@ -101,28 +101,34 @@ class Studs extends React.PureComponent {
                         <Row>
                         <Col xs={2} md={2}></Col>
                         <Col xs={4} md={4}>
-                            <img className="wide" src={'/static/' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
+                            <img className="wide pup__image" src={'/static/' + (item.name).toLowerCase() + '/' + (item.name).toLowerCase() + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
                         </Col>
-                        <Col xs={4} md={4} className="pad_text">
-                            Name : {item.name} <br/>
-                            Birthday : {item.birthdate} <br/>
-                            Color : {item.color} <br/>
-                            {item.description} <br/>
+                        <Col xs={1} md={1}></Col>
+                        <Col xs={3} md={3} className="pad_text">
+                          <div className="corner-border">
+                            <b>Name</b> : {item.name} <br/>
+                            <b>Birthday</b> : {item.birthdate} <br/>
+                            <b>Color</b> : {item.color} <br/>
+                            <b>Description</b> : {item.description} <br/>
                             <br/>
+                          </div>
                         </Col>
                         </Row>
                         :
                         <Row>
                         <Col xs={2} md={2}></Col>
-                        <Col xs={4} md={4} className="pad_text">
-                            Name : {item.name} <br/>
-                            Birthday : {item.birthdate} <br/>
-                            Color : {item.color} <br/>
-                            {item.description} <br/>
+                        <Col xs={3} md={3} className="pad_text">
+                           <div className="corner-border">
+                            <b>Name</b> : {item.name} <br/>
+                            <b>Birthday</b> : {item.birthdate} <br/>
+                            <b>Color</b> : {item.color} <br/>
+                            <b>Description</b> : {item.description} <br/>
                             <br/>
+                          </div>
                         </Col>
+                        <Col xs={2} md={2}></Col>
                         <Col xs={4} md={4}>
-                            <img className="wide" src={'/static/' + item.name + '/' + item.name + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
+                            <img className="wide pup__image" src={'/static/' + (item.name).toLowerCase() + '/' + (item.name).toLowerCase() + '-1.jpg'} onClick={() => this.setState({modalShow : true, current : index})}/>
                         </Col>
                         </Row>
                       }

@@ -1,7 +1,7 @@
 dad: Bowser
-dnad: platinum fluffy carrier sL4_dd_coco_ee_at/ay
+dnad: Platinum Fluffy Carrier (SL/dd/coco/AtAy/ee)
 mom: Yoshi
-dnam: blue dd_at/a_Kbr_nCo
-exp: march 2021
-description : This blue and platinum fluffy carrier can make blues, lilacs, tries that carry cream and fluffy
+dnam: Blue Brindle (dd/AtAy/nco/Kbr)
+exp: March 2021
+description : This cute pair can make blues, lilacs and tri's that carry cream and fluffy
 pics: 0

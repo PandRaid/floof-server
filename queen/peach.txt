@@ -1,5 +1,5 @@
-name: peach
+name: Peach
 birthday: 10/10/20
-description: cute
-color: fluffy (at/ay L4/L4)
+description: Peach is the most loving and intelligent dogs you'll ever meet, potty and command trained in a matter of weeks! She will sit and cuddle with you all day.
+color: fluffy (AyAt/LL)
 pics: 5

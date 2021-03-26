@@ -1,5 +1,5 @@
-name: bowser
+name: Bowser
 birthday: 10/10/20
-description: silly  
-color: platinum fluffy carrier (dd coco ee atay s/L4)
+description: Bowser is the kisser of the house. He absolutely loves everyone and loves to shower them in licks even more.   
+color: platinum fluffy carrier (dd/coco/ee/AtAy/SL)
 pics: 5
